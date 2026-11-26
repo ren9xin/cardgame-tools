@@ -41,8 +41,6 @@ Unity（团结引擎）实现，C# 脚本 62 个 / 1641 行，自研代码按 `�
 
 > **本项目未配置 Build Settings 场景列表，必须手动打开 `SampleScene` 才能进 Play。**
 
-> **依赖提示**：`Packages/manifest.json` 中 `cn.tuanjie.ai.generators` 指向 `file:../.codely-cli/...`，该路径在仓库之外。在其它机器 clone 后打开工程，Unity 会报包解析失败。处理方式：把该条依赖从 `manifest.json` 中删除，或在工程同级目录建 `.codely-cli` 目录后重新导入。其余依赖均可正常解析。
-
 ## 架构设计
 
 这是本项目最值得看的部分。整个战斗流程由「动作（GameAction）+ 反应（Reaction）」两层构成。
@@ -117,7 +115,6 @@ OnEnemyAttackCondition  →  命中时满足  →  触发反击效果
 ## 已知问题
 
 - **Build Settings 场景列表为空**（`m_Scenes: []`），直接 Build 会得到空场景列表，需手动添加 `SampleScene`。
-- **`cn.tuanjie.ai.generators` 依赖指向仓库外层**，异地 clone 后包解析失败，处理方式见上文「运行方式」。
 - `ProjectSettings` 中 `productName` 仍为默认的 `My project`，`applicationIdentifier` 为空，打包前需自行设置。
 - 仓库内含第三方资源：`JMO Assets/Cartoon FX Remaster`（付费特效包）、`DOTween`、`SREditor`、`Samples`（Timeline 官方示例）。这些**不是本项目的自研代码**，若要商用需自行确认授权。
 - `Assets` 内 `.unity` 场景共 3 个，其中 2 个属第三方示例（`CFXRF Demo.unity`、`SRDemo.unity`），注意不要误当成主场景。
